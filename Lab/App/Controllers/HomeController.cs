@@ -10,5 +10,10 @@ namespace App.Controllers
             return View();
         }
 
+        public ActionResult Contatos()
+        {
+            return View();
+        }
+
     }
 }
