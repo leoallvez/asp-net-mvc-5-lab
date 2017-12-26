@@ -1,7 +1,28 @@
-﻿
+﻿@model App.Models.Pessoa
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Curso de ASP MVC</h2>
-<p>Curso com Pedro Vaconcelos</p>
+
+@using (Html.BeginForm("Lista", "Home", FormMethod.Post)) { 
+    <div class="form-group">
+        <label for="Nome">
+            @Html.LabelFor(m => m.PessoaId)
+        </label>
+        @Html.TextBoxFor(m => m.PessoaId, null, new { @class="form-control", @placeholder="Selecione seu código", @type="number" }) 
+    </div>
+    <div class="form-group">
+        <label for="Nome">
+            @Html.LabelFor(m => m.Nome)
+        </label>
+        @Html.TextBoxFor(m => m.Nome, null, new { @class = "form-control", @placeholder = "Digite seu nome" })
+    </div>
+    <div class="form-group">
+        <label for="Nome">
+            @Html.LabelFor(m => m.Tipo)
+        </label>
+        @Html.TextBoxFor(m => m.Tipo, null, new { @class = "form-control", @placeholder = "Digite o tipo de usuário" })
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+}
