@@ -1,7 +1,52 @@
-﻿
+﻿@model App.Models.Usuario
+
 @{
     ViewBag.Title = "Resultado";
 }
 
 <h2>Resultado</h2>
+
+<div class="form-group">
+    <label for="Nome">
+        @Html.LabelFor(m => m.Nome)
+    </label><br />
+    @Html.DisplayFor(m => m.Nome, null, new { @class="form-control", @placeholder="Digite seu nome" })
+</div>
+
+<div class="form-group">
+    <label for="Observacoes">
+        @Html.LabelFor(m => m.Observacoes)
+    </label><br/>
+    @Html.TextAreaFor(m => m.Observacoes, new { @class="form-control", @disabled="disabled"})
+</div>
+
+<div class="form-group">
+    <label for="Observacoes">
+        @Html.LabelFor(m => m.Login)
+    </label><br />
+    @Html.DisplayFor(m => m.Login, new { @class="form-control", @placeholder="Digite seu login" })
+</div>
+
+<div class="form-group">
+    <label for="Email">
+        @Html.LabelFor(m => m.Email)
+    </label><br />
+    @Html.DisplayFor(m => m.Email, null, new { @class="form-control", @placeholder="Digite seu e-mail" })
+</div>
+
+<div class="form-group">
+    <label for="Senha">
+        @Html.LabelFor(m => m.Senha)
+    </label><br />
+    @Html.DisplayFor(m => m.Senha, new { @class = "form-control", @placeholder = "Digite sua senha" })
+</div>
+
+<div class="form-group">
+    <label for="Confirmar">
+        @Html.LabelFor(m => m.ConfirmarSenha)
+    </label><br />
+    @Html.DisplayFor(m => m.ConfirmarSenha, new { @class = "form-control", @placeholder = "Confirme sua senha" })
+</div>
+
+@ViewHelpers.BackButton()
 

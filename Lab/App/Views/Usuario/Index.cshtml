@@ -6,7 +6,7 @@
 <h2>Curso de ASP MVC</h2>
 
 <h2>Validação</h2>
-@using (Html.BeginForm(""))
+@using (Html.BeginForm("Index", "Usuario", FormMethod.Post))
 {
     @Html.ValidationSummary(true)
     <div class="form-group">
@@ -25,6 +25,15 @@
         @Html.TextAreaFor(m => m.Observacoes, 
                               new { @class = "form-control", @placeholder = "Digite suas observações" })
         @Html.ValidationMessageFor(m => m.Observacoes)
+    </div>
+
+    <div class="form-group">
+        <label for="Observacoes">
+            @Html.LabelFor(m => m.Idade)
+        </label>
+        @Html.TextAreaFor(m => m.Idade,
+                              new { @class = "form-control", @placeholder = "Digite sua idade" })
+        @Html.ValidationMessageFor(m => m.Idade)
     </div>
 
     <div class="form-group">
@@ -56,15 +65,20 @@
 
     <div class="form-group">
         <label for="Confirmar">
-            @Html.LabelFor(m => m.Confirmar)
+            @Html.LabelFor(m => m.ConfirmarSenha)
         </label>
-        @Html.PasswordFor(m => m.Confirmar, 
+        @Html.PasswordFor(m => m.ConfirmarSenha, 
                               new { @class = "form-control", @placeholder = "Confirme sua senha" })
-        @Html.ValidationMessageFor(m => m.Confirmar)
+        @Html.ValidationMessageFor(m => m.ConfirmarSenha)
     </div>
 
     @ViewHelpers.SubmitButton()
     @ViewHelpers.BackButton()
 }
+
+@section Scripts{
+    @*@Scripts.Render("~/budles/jquerval")*@
+}
+
 
 
