@@ -1,0 +1,21 @@
+﻿
+
+@helper MakeNote(string content)
+{
+    <div class="note"
+         style="border: 1px solid black; width: 90%; padding: 5px; margin-left: 15px;">
+        <p>
+            <strong>Note</strong>&nbsp;&nbsp; @content
+        </p>
+    </div>
+}
+
+@helper SubmitButton()
+{
+    <input class="btn btn-primary" type="submit" value="Enviar">
+}
+
+@helper BackButton()
+{
+   <button class="btn btn-warning" onclick="window.history.back()">Voltar</button>
+}

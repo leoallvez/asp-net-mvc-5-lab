@@ -1,7 +1,70 @@
-﻿
+﻿@model App.Models.Usuario
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Curso de ASP MVC</h2>
+
+<h2>Validação</h2>
+@using (Html.BeginForm(""))
+{
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        <label for="Nome">
+            @Html.LabelFor(m => m.Nome)
+        </label>
+        @Html.TextBoxFor(m => m.Nome, null,
+                              new { @class = "form-control", @placeholder = "Digite seu nome" })
+        @Html.ValidationMessageFor(m => m.Nome)
+    </div>
+
+    <div class="form-group">
+        <label for="Observacoes">
+            @Html.LabelFor(m => m.Observacoes)
+        </label>
+        @Html.TextAreaFor(m => m.Observacoes, 
+                              new { @class = "form-control", @placeholder = "Digite suas observações" })
+        @Html.ValidationMessageFor(m => m.Observacoes)
+    </div>
+
+    <div class="form-group">
+        <label for="Observacoes">
+            @Html.LabelFor(m => m.Login)
+        </label>
+        @Html.TextAreaFor(m => m.Login,
+                              new { @class = "form-control", @placeholder = "Digite seu login" })
+        @Html.ValidationMessageFor(m => m.Login)
+    </div>
+
+    <div class="form-group">
+        <label for="Email">
+            @Html.LabelFor(m => m.Email)
+        </label>
+        @Html.TextBoxFor(m => m.Email, null,
+                              new { @class = "form-control", @placeholder = "Digite seu e-mail" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div class="form-group">
+        <label for="Senha">
+            @Html.LabelFor(m => m.Senha)
+        </label>
+        @Html.PasswordFor(m => m.Senha,
+                              new { @class = "form-control", @placeholder = "Digite sua senha" })
+        @Html.ValidationMessageFor(m => m.Senha)
+    </div>
+
+    <div class="form-group">
+        <label for="Confirmar">
+            @Html.LabelFor(m => m.Confirmar)
+        </label>
+        @Html.PasswordFor(m => m.Confirmar, 
+                              new { @class = "form-control", @placeholder = "Confirme sua senha" })
+        @Html.ValidationMessageFor(m => m.Confirmar)
+    </div>
+
+    @ViewHelpers.SubmitButton()
+    @ViewHelpers.BackButton()
+}
+
 
