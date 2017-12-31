@@ -1,9 +1,10 @@
 ﻿using System;
+using App.Models;
 using System.Web;
 using System.Linq;
 using System.Web.Mvc;
 using System.Collections.Generic;
-using App.Models;
+using System.Collections.ObjectModel;
 
 namespace App.Controllers
 {
@@ -30,6 +31,18 @@ namespace App.Controllers
         public ActionResult Resultado(Usuario usuario)
         {
             return View(usuario);
+        }
+
+        public ActionResult LoginUnico(string login)
+        {
+            var bdExemplo = new Collection<string>
+            {
+                "hugo",
+                "freitas",
+                "paula"
+            };
+
+            return Json(bdExemplo.All(m => !m.ToLower().Equals(login.ToLower())), JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Linq;
+using System.Web.Mvc;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -26,16 +27,15 @@ namespace App.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Obrigatório")]
-        [RegularExpression(@"[a-zA-Z]{5, 15}", 
-            ErrorMessage = "Somente lentras, de 5 a 15 caracteres")]
-       
+        [Remote("LoginUnico", "Usuario", ErrorMessage ="Login já existe na base de dados")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Somente letras")]
         public string Login { get; set; }
 
         [Required(ErrorMessage = "Obrigatório")]
         public string Senha { get; set; }
 
         [Required(ErrorMessage = "Obrigatório")]
-        [Compare("Senha", ErrorMessage = "A senha e a confirmação devem serem iguais")]
+        [System.ComponentModel.DataAnnotations.Compare("Senha", ErrorMessage = "A senha e a confirmação devem ser iguais")]
         [Display(Name = "Confirmar Senha")]
         public string ConfirmarSenha { get; set; }
     }

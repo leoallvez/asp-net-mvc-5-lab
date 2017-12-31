@@ -14,8 +14,8 @@
             @Html.LabelFor(m => m.Nome)
         </label>
         @Html.TextBoxFor(m => m.Nome, null,
-                              new { @class = "form-control", @placeholder = "Digite seu nome" })
-        @Html.ValidationMessageFor(m => m.Nome)
+                              new { @class="form-control", @placeholder="Digite seu nome" })
+        @Html.ValidationMessageFor(m => m.Nome, null, new { @class="alert" })
     </div>
 
     <div class="form-group">
@@ -23,26 +23,26 @@
             @Html.LabelFor(m => m.Observacoes)
         </label>
         @Html.TextAreaFor(m => m.Observacoes, 
-                              new { @class = "form-control", @placeholder = "Digite suas observações" })
-        @Html.ValidationMessageFor(m => m.Observacoes)
+                              new { @class="form-control", @placeholder="Digite suas observações" })
+        @Html.ValidationMessageFor(m => m.Observacoes, null, new { @class = "alert" })
     </div>
 
     <div class="form-group">
         <label for="Observacoes">
             @Html.LabelFor(m => m.Idade)
         </label>
-        @Html.TextAreaFor(m => m.Idade,
-                              new { @class = "form-control", @placeholder = "Digite sua idade" })
-        @Html.ValidationMessageFor(m => m.Idade)
+        @Html.TextBoxFor(m => m.Idade,
+                              new { @class="form-control", @placeholder="Digite sua idade", @type="number"})
+        @Html.ValidationMessageFor(m => m.Idade, null, new { @class = "alert" })
     </div>
 
     <div class="form-group">
         <label for="Observacoes">
             @Html.LabelFor(m => m.Login)
         </label>
-        @Html.TextAreaFor(m => m.Login,
-                              new { @class = "form-control", @placeholder = "Digite seu login" })
-        @Html.ValidationMessageFor(m => m.Login)
+        @Html.TextBoxFor(m => m.Login,
+                              new { @class="form-control", @placeholder="Digite seu login" })
+        @Html.ValidationMessageFor(m => m.Login, null, new { @class = "alert" })
     </div>
 
     <div class="form-group">
@@ -50,8 +50,8 @@
             @Html.LabelFor(m => m.Email)
         </label>
         @Html.TextBoxFor(m => m.Email, null,
-                              new { @class = "form-control", @placeholder = "Digite seu e-mail" })
-        @Html.ValidationMessageFor(m => m.Email)
+                              new { @class="form-control", @placeholder="Digite seu e-mail" })
+        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "alert" })
     </div>
 
     <div class="form-group">
@@ -59,8 +59,8 @@
             @Html.LabelFor(m => m.Senha)
         </label>
         @Html.PasswordFor(m => m.Senha,
-                              new { @class = "form-control", @placeholder = "Digite sua senha" })
-        @Html.ValidationMessageFor(m => m.Senha)
+                              new { @class="form-control", @placeholder="Digite sua senha" })
+        @Html.ValidationMessageFor(m => m.Senha, null, new { @class = "alert" })
     </div>
 
     <div class="form-group">
@@ -68,16 +68,26 @@
             @Html.LabelFor(m => m.ConfirmarSenha)
         </label>
         @Html.PasswordFor(m => m.ConfirmarSenha, 
-                              new { @class = "form-control", @placeholder = "Confirme sua senha" })
-        @Html.ValidationMessageFor(m => m.ConfirmarSenha)
+                              new { @class="form-control", @placeholder="Confirme sua senha" })
+        @Html.ValidationMessageFor(m => m.ConfirmarSenha, null, new { @class = "alert" })
     </div>
 
     @ViewHelpers.SubmitButton()
     @ViewHelpers.BackButton()
 }
 
-@section Scripts{
-    @*@Scripts.Render("~/budles/jquerval")*@
+@section Style {
+
+    <style>
+        .alert {
+            color: red;
+        }
+    </style>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 
