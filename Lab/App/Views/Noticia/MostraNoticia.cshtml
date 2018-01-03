@@ -1,8 +1,32 @@
 ﻿@model App.Models.Noticia
 
 @{
-    ViewBag.Title = "MostraNoticia";
+    ViewBag.Title = "Mostra Noticia";
 }
 
 <h2>Mostrar Noticia</h2>
 
+<table class="table table-inverse">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Categoria</th>
+            <th>Data</th>
+            <th>Conteúdo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@Model.Id</th>
+            <td>@Model.Titulo</td>
+            <td>@Html.ActionLink(@Model.Categoria, "MostraCategoria", "Noticia", new { @categoria = @Model.Categoria }, null)</td>
+            <td>@Model.Categoria</td>
+            <td>@Model.Data</td>
+            <td>@Model.Conteudo</td>
+        </tr>
+    </tbody>
+</table>
+
+@ViewHelpers.BackButton()

@@ -10,7 +10,7 @@ namespace App.Models
     public class Noticia
     {
         [Required(ErrorMessage = "Obrigatório")]
-        public int NoticiaId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage ="Obrigatório")]
         public string Titulo { get; set; }
@@ -26,11 +26,11 @@ namespace App.Models
 
         public IEnumerable<Noticia> TodasAsNoticias()
         {
-            var retorno = new Collection<Noticia>
+            return new Collection<Noticia>
                 {
                     new Noticia
                         {
-                            NoticiaId = 1,
+                            Id = 1,
                             Categoria = "Esportes",
                             Titulo = "Felipe Massa ganha F1",
                             Conteudo = "Numa tarde de chuva Felipe Massa ganha F1 no Brasil...",
@@ -38,7 +38,7 @@ namespace App.Models
                         },
                     new Noticia
                         {
-                            NoticiaId = 2,
+                            Id = 2,
                             Categoria = "Política",
                             Titulo = "Presidente assina convênios",
                             Conteudo = "Durante reunião o presidente Ismael Freitas assinou os convênios...",
@@ -46,7 +46,7 @@ namespace App.Models
                         },
                     new Noticia
                         {
-                            NoticiaId = 3,
+                            Id = 3,
                             Categoria = "Política",
                             Titulo = "Vereador é eleito pela 4ª vez",
                             Conteudo = "Vereador Fabio Pratt é eleito pela quarta vez...",
@@ -54,7 +54,7 @@ namespace App.Models
                         },
                     new Noticia
                         {
-                            NoticiaId = 4,
+                            Id = 4,
                             Categoria = "Esportes",
                             Titulo = "O tão sonhado titulo chegou",
                             Conteudo = "Em um jogo que levou os torcedores ao delirio...",
@@ -62,7 +62,7 @@ namespace App.Models
                         },
                     new Noticia
                         {
-                            NoticiaId = 5,
+                            Id = 5,
                             Categoria = "Humor",
                             Titulo = "O Comediante Anderson Renato fará shou hoje",
                             Conteudo = "O comediante mais engraçados dos comentários do Youtube fará show...",
@@ -70,7 +70,7 @@ namespace App.Models
                         },
                     new Noticia
                         {
-                            NoticiaId = 6,
+                            Id = 6,
                             Categoria = "Policial",
                             Titulo = "Tenente coronel Lucas Farias Santos assume o controle",
                             Conteudo = "Durante a retomada do morro o tenente coronel disse...",
@@ -78,14 +78,13 @@ namespace App.Models
                         },
                     new Noticia
                         {
-                            NoticiaId = 7,
+                            Id = 7,
                             Categoria = "Esportes",
                             Titulo = "Atacante do Barcelona faz 4 gols",
                             Conteudo = "O atacante Lucas Farias Santos Messi, fez 4 gols e decidiu o titulo...",
                             Data = new DateTime(2017,3,1)
                         }
                 };
-            return retorno;
         }
     }
 }

@@ -9,7 +9,7 @@
     <ul>
         @foreach (string item in ViewBag.Categorias)
         {
-            <li>@Html.ActionLink(item, "MostrarCategoria", "Noticia", new { @categoria = item }, null)</li>
+            <li>@Html.ActionLink(item, "MostraCategoria", "Noticia", new { @categoria = item }, null)</li>
         }
     </ul>
 </div>
@@ -19,12 +19,7 @@
         @foreach(var item in Model)
         {
             <li>
-                @Html.ActionLink(item.Titulo, "MostraNoticia", new {
-                      @noticiaId = item.NoticiaId,
-                      @categoria = item.Categoria.ToLower(),
-                      @titulo = item.Titulo.ToLower()
-
-               }, null)
+                @Html.ActionLink(item.Titulo, "MostraNoticia", new { @id = item.Id}, null)
                <em>@Html.DisplayFor(m => item.Categoria)</em>
                <em><b>@Html.DisplayFor(m => item.Data)</b></em>
            </li>

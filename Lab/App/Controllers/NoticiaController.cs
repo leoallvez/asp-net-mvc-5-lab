@@ -31,7 +31,17 @@ namespace App.Controllers
 
         public ActionResult MostraNoticia(int id)
         {
-            return View(TodasNoticias.Where(m => m.NoticiaId == id));
+            Noticia noticia = TodasNoticias.FirstOrDefault(m => m.Id == id);
+            return View(noticia);
+        }
+
+        public ActionResult MostraCategoria(string categoria)
+        {
+            var noticias = TodasNoticias.Where(m => m.Categoria.ToLower()
+                .Equals(categoria.ToLower())).ToList();
+
+            ViewBag.Categoria = categoria;
+            return View(noticias);
         }
     }
 }
