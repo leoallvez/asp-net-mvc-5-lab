@@ -29,12 +29,14 @@ namespace App.Controllers
             return View(TodasNoticias);
         }
 
-        public ActionResult MostraNoticia(int id)
+        public ActionResult MostraNoticia(int id, string categoria, string titulo)
         {
             Noticia noticia = TodasNoticias.FirstOrDefault(m => m.Id == id);
             return View(noticia);
         }
 
+    
+        /**URL - Amigaveis -> http://localhost:50857/noticias/Esportes */
         public ActionResult MostraCategoria(string categoria)
         {
             var noticias = TodasNoticias.Where(m => m.Categoria.ToLower()

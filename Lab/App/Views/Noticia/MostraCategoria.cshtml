@@ -7,12 +7,16 @@
 
 <div>
     <ul>
-        @foreach (var item in Model)
+        @foreach (var i in Model)
         {
             <li>
-                @Html.ActionLink(item.Titulo, "MostraNoticia", new { @id = item.Id }, null)
-                <em>@Html.DisplayFor(m => item.Categoria)</em>
-                <em><b>@Html.DisplayFor(m => item.Data)</b></em>
+                @Html.ActionLink(i.Titulo, "MostraNoticia", new {
+                   @id = i.Id,
+                   @categoria = i.Categoria,
+                   @titulo = i.Titulo
+                }, null)
+                <em>@Html.DisplayFor(m => i.Categoria)</em>
+                <em><b>@Html.DisplayFor(m => i.Data)</b></em>
             </li>
         }
     </ul>

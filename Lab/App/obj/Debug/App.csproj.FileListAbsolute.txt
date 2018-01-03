@@ -77,6 +77,5 @@ C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Ap
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\App\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\App\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\App\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\App\obj\Debug\App.csprojResolveAssemblyReference.cache
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\App\obj\Debug\App.dll
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\App\obj\Debug\App.pdb
