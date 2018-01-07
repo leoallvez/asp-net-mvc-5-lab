@@ -77,6 +77,5 @@ C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Ma
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Materialize\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Materialize\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Materialize\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Materialize\obj\Debug\Materialize.csprojResolveAssemblyReference.cache
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Materialize\obj\Debug\Materialize.dll
 C:\Users\Leonardo\Documents\Visual Studio 2015\Projects\asp-net-mvc-5-lab\Lab\Materialize\obj\Debug\Materialize.pdb
