@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DoctorWhoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Doctors" Relationship="Self.REL_DOCTORS_CITIES" FromRole="Cities" ToRole="Doctors" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CRM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Neighborhood" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WorksWithCovenant" Type="Boolean" Nullable="false" />
+    <Property Name="HasClinic" Type="Boolean" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int64" Nullable="false" />
+    <Property Name="SpecialtyId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.REL_DOCTORS_CITIES" FromRole="Doctors" ToRole="Cities" />
+    <NavigationProperty Name="Specialties" Relationship="Self.REL_DOCTORS_SPECIALTIES" FromRole="Doctors" ToRole="Specialties" />
+  </EntityType>
+  <EntityType Name="Specialties">
+    <Key>
+      <PropertyRef Name="SpecialtyId" />
+    </Key>
+    <Property Name="SpecialtyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descriptions" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Doctors" Relationship="Self.REL_DOCTORS_SPECIALTIES" FromRole="Specialties" ToRole="Doctors" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoginSystem" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordSystem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="REL_DOCTORS_CITIES">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REL_DOCTORS_SPECIALTIES">
+    <End Role="Specialties" Type="Self.Specialties" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialties">
+        <PropertyRef Name="SpecialtyId" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="SpecialtyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DoctorWhoEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="Self.Cities" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" />
+    <EntitySet Name="Specialties" EntityType="Self.Specialties" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="REL_DOCTORS_CITIES" Association="Self.REL_DOCTORS_CITIES">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="REL_DOCTORS_SPECIALTIES" Association="Self.REL_DOCTORS_SPECIALTIES">
+      <End Role="Specialties" EntitySet="Specialties" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

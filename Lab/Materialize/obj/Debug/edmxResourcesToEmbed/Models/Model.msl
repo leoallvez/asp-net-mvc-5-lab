@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DoctorWhoModelStoreContainer" CdmEntityContainer="DoctorWhoEntities2">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="DoctorWhoModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="DoctorWhoModel.Doctors">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="CRM" ColumnName="CRM" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="WorksWithCovenant" ColumnName="WorksWithCovenant" />
+          <ScalarProperty Name="HasClinic" ColumnName="HasClinic" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="SpecialtyId" ColumnName="SpecialtyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specialties">
+      <EntityTypeMapping TypeName="DoctorWhoModel.Specialties">
+        <MappingFragment StoreEntitySet="Specialties">
+          <ScalarProperty Name="SpecialtyId" ColumnName="SpecialtyId" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DoctorWhoModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="LoginSystem" ColumnName="LoginSystem" />
+          <ScalarProperty Name="PasswordSystem" ColumnName="PasswordSystem" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

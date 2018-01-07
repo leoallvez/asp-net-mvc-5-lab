@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DoctorWhoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CRM" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Neighborhood" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="WorksWithCovenant" Type="bit" Nullable="false" />
+    <Property Name="HasClinic" Type="bit" Nullable="false" />
+    <Property Name="Website" Type="varchar" MaxLength="150" />
+    <Property Name="CityId" Type="bigint" Nullable="false" />
+    <Property Name="SpecialtyId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialties">
+    <Key>
+      <PropertyRef Name="SpecialtyId" />
+    </Key>
+    <Property Name="SpecialtyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LoginSystem" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PasswordSystem" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="REL_DOCTORS_CITIES">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REL_DOCTORS_SPECIALTIES">
+    <End Role="Specialties" Type="Self.Specialties" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialties">
+        <PropertyRef Name="SpecialtyId" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="SpecialtyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DoctorWhoModelStoreContainer">
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specialties" EntityType="Self.Specialties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="REL_DOCTORS_CITIES" Association="Self.REL_DOCTORS_CITIES">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="REL_DOCTORS_SPECIALTIES" Association="Self.REL_DOCTORS_SPECIALTIES">
+      <End Role="Specialties" EntitySet="Specialties" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
