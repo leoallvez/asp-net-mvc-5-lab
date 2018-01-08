@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Materialize.Models.Doctors>
+
+@{
+    ViewBag.Title = "Doctors";
+}
+
+<h2>Doctors</h2>
+
+<p>
+    @Html.ActionLink("New Doctors", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CRM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cities.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialties.Descriptions)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CRM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cities.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialties.Descriptions)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.DoctorId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.DoctorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DoctorId })
+        </td>
+    </tr>
+}
+
+</table>
